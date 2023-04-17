@@ -6,10 +6,10 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://kit.fontawesome.com/77cb986030.js" crossorigin="anonymous"></script>
-	<title>Twoje zadania</title>
+
+	<title>Twoje narzędzia</title>
 </head>
 <body>
-
 <header>
   <div class="header-img">
     <div class = "header-text">
@@ -19,27 +19,32 @@
     <div class = "header-bg"></div>
   </div>
 </header>
-
 <main>
-  <div class="addtask">
-  <h2>Dodaj zadanie</h2>
-  <form th:action="@{/tasks}" th:object="${task}" method="post">
-    <label for="description">Opis:</label>
-    <input type="text" id="description" th:field="*{description}" required>
-    <button type="submit">Dodaj zadanie</button>
-  </form>
+
+  <div class="addtool">
+    <h2>Dodaj narzędzie</h2>
+    <form th:action="@{/tools}" th:object="${tool}" method="post">
+      <label for="name">Nazwa:</label>
+      <input type="text" id="name" th:field="*{name}" required>
+      <label for="description">Opis:</label>
+      <input type="text" id="description" th:field="*{description}" required>
+      <button type="submit">Dodaj narzędzie </button>
+    </form>
   </div>
 
-  <div class="tasklist"></div>
-  <h3>Lista dodanych zadań</h3>
-  <table>
-    <tr>
-      <th>Zadania z opisem</th>
-    </tr>
-    <tr th:each="task : ${tasks}">
-      <td th:text="${task.description}"></td>
-    </tr>
-  </table>
+
+  <div class="toolslist">
+    <h1>Lista dodanych narzędzi</h1>
+    <table>
+      <tr>
+        <th>Nazwa narzędzia</th>
+        <th>opis narzędzia</th>
+      </tr>
+      <tr th:each="tool : ${tools}">
+        <td th:text="${tool.name}"></td>
+        <td th:text="${tool.description}"></td>
+      </tr>
+    </table>
   </div>
 
   <a th:href="@{/home}">Wróć do menu</a>
