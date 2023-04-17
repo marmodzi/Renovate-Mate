@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/77cb986030.js" crossorigin="anonymous"></script>
+	<title>Zadania</title>
+</head>
+<body>
+
+<header>
+  <div class="header-img">
+    <div class = "header-text">
+      <h1>RenovateMateApp</h1>
+      <p> tu tekst dodatkowy </p>
+    </div>
+    <div class = "header-bg"></div>
+  </div>
+</header>
+
+<main>
+  <div class="addtask">
+  <h2>Dodaj zadanie</h2>
+  <form th:action="@{/tasks}" th:object="${task}" method="post">
+    <label for="description">Opis:</label>
+    <input type="text" id="description" th:field="*{description}" required>
+    <button type="submit">Dodaj zadanie</button>
+  </form>
+  <a th:href="@{/home}">Wróć do strony głównej</a>
+  </div>
+
+  <div class="tasklist"></div>
+  <h3>Lista dodanych zadań</h3>
+  <table>
+    <tr>
+      <th>Zadania z opisem</th>
+    </tr>
+    <tr th:each="task : ${tasks}">
+      <td th:text="${task.description}"></td>
+    </tr>
+  </table>
+  </div>
+
+</main>
+
+<footer>
+  <p> &copy; 2023 | RenovateMate
+    <span class="icon-box">
+      <a href="#"> <i class="fa-brands fa-square-facebook"></i> </a>
+    </span>
+  </p>
+</footer>
+
+</body>
+</html>
