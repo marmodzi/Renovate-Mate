@@ -18,33 +18,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-@RequestMapping("/actual-tasks")
 public class ActualTaskAndToolsListController {
     private final TaskService taskService;
     private final ToolService toolService;
     private final TaskToolService taskToolService;
-    private final UserService userService;
 
-    public ActualTaskAndToolsListController(TaskService taskService, ToolService toolService, TaskToolService taskToolService, UserService userService) {
+    public ActualTaskAndToolsListController(TaskService taskService, ToolService toolService, TaskToolService taskToolService) {
         this.taskService = taskService;
         this.toolService = toolService;
         this.taskToolService = taskToolService;
-        this.userService = userService;
     }
 
-    @GetMapping
-    public String getActualTasks(Authentication authentication, Model model) {
-        User user = userService.findByUsername(authentication.getName());
-        Iterable<Task> tasks = taskService.findAllByUser(user);
+    @GetMapping("/actual-tasks")
+    public String getActualTasks(Model model) {
+        Iterable<Task> tasks = taskService.findAll();
         model.addAttribute("tasks", tasks);
         return "actual-tasks";
     }
 
-    @PostMapping
-    public String generateToolList(Authentication authentication, @RequestParam Long taskId, Model model) {
-        User user = userService.findByUsername(authentication.getName());
-        Task task = taskService.findByIdAndUser(taskId, user).orElse(null);
-        List<Tool> tools = taskToolService.findByTaskIdAndUser(taskId, user);
+    @PostMapping("/actual-tasks")
+    public String generateToolList(@RequestParam Long taskId, Model model) {
+        Task task = taskService.findById(taskId).orElse(null);
+        List<Tool> tools = taskToolService.findByTaskId(taskId);
 
         model.addAttribute("task", task);
         model.addAttribute("tools", tools);
