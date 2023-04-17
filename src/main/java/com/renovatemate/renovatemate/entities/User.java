@@ -14,7 +14,7 @@ public class User {
 
     private String email;
 
-    // email at this stage of application, not yet used
+    // at this stage of application, not yet used
 
     public User() {
     }
