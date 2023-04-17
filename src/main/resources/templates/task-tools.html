@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/77cb986030.js" crossorigin="anonymous"></script>
+  <title>Powiąż swoje narzędzia z zadaniami</title>
+</head>
+<body>
+<header>
+  <div class="header-img">
+    <div class = "header-text">
+      <h1>RenovateMateApp</h1>
+      <p> tu tekst dodatkowy </p>
+    </div>
+    <div class = "header-bg"></div>
+  </div>
+</header>
+<main>
+  <div class="linking">
+    <h1>Powiąż swoje narzędzia z zadaniami</h1>
+
+      <form th:action="@{/task-tools}" th:object="${taskTool}" method="post">
+        <label for="task">Wybierz zadanie:</label>
+        <select id="task" name="task" th:field="*{task}">
+          <option th:each="task : ${tasks}" th:value="${task.id}" th:text="${task.description}"></option>
+        </select>
+
+        <label for="tool">Wybierz narzędzie:</label>
+        <select id="tool" name="tool" th:field="*{tool}">
+            <option th:each="tool : ${tools}" th:value="${tool.id}" th:text="${tool.name}"></option>
+          </select>
+
+        <button type="submit">Dodaj powiązanie</button>
+      </form>
+  </div>
+
+  <div class="linking-list">
+    <h2>Twoja lista powiązań </h2>
+    <table>
+      <tr>
+        <th>Task</th>
+        <th>Tool</th>
+      </tr>
+      <tr th:each="taskTool : ${taskTools}">
+        <td th:text="${taskTool.task.description}"></td>
+        <td th:text="${taskTool.tool.name}"></td>
+      </tr>
+    </table>
+  </div>
+
+<a th:href="@{/}">Wróć do menu głównego</a>
+
+  <footer>
+    <p> &copy; 2023 | RenovateMate
+      <span class="icon-box">
+      <a href="#"> <i class="fa-brands fa-square-facebook"></i> </a>
+    </span>
+    </p>
+  </footer>
+
+</main>
+</body>
+</html>
