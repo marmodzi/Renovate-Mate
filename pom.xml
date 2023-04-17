@@ -6,13 +6,13 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.10</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
     <groupId>com.renovatemate</groupId>
-    <artifactId>RenovateMate</artifactId>
+    <artifactId>RenovateMateApp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>RenovateMate</name>
-    <description>RenovateMate</description>
+    <name>RenovateMateApp</name>
+    <description>RenovateMateApp</description>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -36,6 +36,11 @@
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
         <dependency>
