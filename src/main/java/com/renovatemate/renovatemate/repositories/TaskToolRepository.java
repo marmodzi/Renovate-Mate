@@ -11,7 +11,6 @@ import org.springframework.scheduling.config.Task;
 import java.util.List;
 
 public interface TaskToolRepository extends CrudRepository<TaskTool, Long> {
-    List<TaskTool> findByTask(Task task);
     List<TaskTool> findByUser(User user);
 
     @Query("SELECT t.tool FROM TaskTool t WHERE t.task.id = :taskId")
