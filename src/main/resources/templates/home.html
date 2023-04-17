@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://kit.fontawesome.com/77cb986030.js" crossorigin="anonymous"></script>
+	<title>Title</title>
+</head>
+<body>
+
+<header>
+	<div class="header-img">
+		<div class = "header-text">
+			<h1>RenovateMateApp</h1>
+			<p> tu tekst dodatkowy </p>
+		</div>
+		<div class = "header-bg"></div>
+	</div>
+</header>
+<main>
+<h2> Serwus, <span th:text="${username}">Testowy użytkowniku </span>!</h2>
+
+<ul>
+	<li><a th:href="@{/tasks}">Modyfikuj swoje zadania w bazie danych</a></li>
+	<li><a th:href="@{/tools}">Modyfikuj swoje narzędzia w bazie danych</a></li>
+	<li><a th:href="@{/task-tools}">Powiąż swoje narzędzia z zadaniami</a></li>
+	<li><a th:href="@{/actual-tasks}">Lista aktualnych zadań i potrzebnych narzędzi</a></li>
+	<li><a th:href="@{/logout}">Wyloguj</a></li>
+
+</ul>
+</main>
+<footer>
+	<p> &copy; 2023 | RenovateMate
+		<span class="icon-box">
+      <a href="#"> <i class="fa-brands fa-square-facebook"></i> </a>
+    </span>
+	</p>
+</footer>
+
+</body>
+</html>
