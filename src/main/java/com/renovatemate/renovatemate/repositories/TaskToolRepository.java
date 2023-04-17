@@ -14,4 +14,7 @@ public interface TaskToolRepository extends CrudRepository<TaskTool, Long> {
 
     @Query("SELECT t.tool FROM TaskTool t WHERE t.task.id = :taskId")
     List<Tool> findByTaskId(@Param("taskId") Long taskId);
+
+    List<Tool> findByTaskIdAndUser(Long taskId, User user);
+
 }

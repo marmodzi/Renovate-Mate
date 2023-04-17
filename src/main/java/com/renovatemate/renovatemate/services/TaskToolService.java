@@ -36,4 +36,8 @@ public class TaskToolService {
     public List<TaskTool> findAllByUser(User user) {
         return taskToolRepository.findByUser(user);
     }
+
+    public List<Tool> findByTaskIdAndUser(Long taskId, User user) {
+        return taskToolRepository.findByTaskIdAndUser(taskId, user);
+    }
 }

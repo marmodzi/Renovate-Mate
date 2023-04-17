@@ -38,4 +38,8 @@ public class TaskService {
     public List<Task> findAllByUser(User user) {
         return taskRepository.findByUser(user);
     }
+    public Optional<Task> findByIdAndUser(Long id, User user) {
+        return taskRepository.findByIdAndUser(id, user);
+    }
+
 }
