@@ -12,5 +12,5 @@ import java.util.Optional;
 public interface ToolRepository extends CrudRepository<Tool, Long> {
     List<Tool> findAllByUser(User user);
     Optional<Tool> findByIdAndUser(Long id, User user);
-    void deleteByIdAndUser(Long id, User user);
+
 }
