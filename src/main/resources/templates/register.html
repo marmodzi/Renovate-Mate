@@ -5,39 +5,46 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="https://kit.fontawesome.com/77cb986030.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <script src="https://kit.fontawesome.com/77cb986030.js" crossorigin="anonymous"></script>
   <title>Rejestracja</title>
 </head>
 <body>
-<header>
-  <div class="header-img">
-    <div class = "header-text">
-      <h1>RenovateMateApp</h1>
-      <p> tu tekst dodatkowy </p>
+    <header>
+      <div class="header-img">
+        <div class = "header-text">
+          <h1>RenovateMateApp</h1>
+          <p> tu tekst dodatkowy </p>
+        </div>
+        <div class = "header-bg"></div>
+      </div>
+    </header>
+
+<main class="login">
+    <div class="login-container">
+        <h2>Rejestracja</h2>
+          <form th:action="@{/register}" method="post">
+           <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required/>
+            <br/>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required/>
+            <br/>
+            <input type="submit" value="Zarejestruj się"/>
+          </form>
+        <p>Masz konto? Zaloguj się! <a th:href="@{/login}">Login</a></p>
     </div>
-    <div class = "header-bg"></div>
-  </div>
-</header>
-<main>
-  <h2>Rejestracja</h2>
-  <form th:action="@{/register}" method="post">
-   <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required/>
-    <br/>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required/>
-    <br/>
-    <input type="submit" value="Zarejestruj się"/>
-  </form>
-  <p>Masz konto? Zaloguj się! <a th:href="@{/login}">Login</a></p>
 </main>
 
-<footer>
-  <p> &copy; 2023 | RenovateMate
-    <span class="icon-box">
-      <a href="#"> <i class="fa-brands fa-square-facebook"></i> </a>
-    </span>
-  </p>
+</div>
+<footer class="foot">
+    <p> &copy; 2023 | RenovateMate
+        <span class="icon-box">
+	      <a href="#"> <i class="fa-brands fa-square-facebook"></i> </a>
+	    </span>
+    </p>
 </footer>
+</div>
+
 </body>
 </html>

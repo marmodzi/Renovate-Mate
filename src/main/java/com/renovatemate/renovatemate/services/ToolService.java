@@ -20,11 +20,6 @@ public class ToolService {
         return toolRepository.findAllByUser(user);
     }
 
-    public Optional<Tool> findByIdAndUser(Long id, User user) {
-        return toolRepository.findByIdAndUser(id, user);
-    }
-
-    // at this stage of application, not yet used
 
     public Tool save(Tool tool, User user) {
         tool.setUser(user);

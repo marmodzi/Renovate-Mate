@@ -6,10 +6,12 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://kit.fontawesome.com/77cb986030.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
 
-	<title>Twoje narzędzia</title>
+  <title>Twoje narzędzia</title>
 </head>
 <body>
+
 <header>
   <div class="header-img">
     <div class = "header-text">
@@ -19,6 +21,7 @@
     <div class = "header-bg"></div>
   </div>
 </header>
+
 <main>
 
   <div class="addtool">
@@ -34,7 +37,7 @@
 
 
   <div class="toolslist">
-    <h1>Lista dodanych narzędzi</h1>
+    <h2>Lista dodanych narzędzi</h2>
     <table>
       <tr>
         <th>Nazwa narzędzia</th>
@@ -45,19 +48,20 @@
         <td th:text="${tool.description}"></td>
       </tr>
     </table>
+    <a th:href="@{/home}">Wróć do menu</a>
   </div>
-
-  <a th:href="@{/home}">Wróć do menu</a>
 
 </main>
 
-<footer>
+</div>
+<footer class="foot">
   <p> &copy; 2023 | RenovateMate
     <span class="icon-box">
-      <a href="#"> <i class="fa-brands fa-square-facebook"></i> </a>
+            <a href="#"> <i class="fa-brands fa-square-facebook"></i> </a>
     </span>
   </p>
 </footer>
+</div>
 
 </body>
 </html>

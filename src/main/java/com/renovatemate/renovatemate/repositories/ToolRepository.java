@@ -11,6 +11,5 @@ import java.util.Optional;
 @Repository
 public interface ToolRepository extends CrudRepository<Tool, Long> {
     List<Tool> findAllByUser(User user);
-    Optional<Tool> findByIdAndUser(Long id, User user);
 
 }

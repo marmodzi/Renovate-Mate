@@ -6,7 +6,9 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://kit.fontawesome.com/77cb986030.js" crossorigin="anonymous"></script>
-	<title>Twoje zadania</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+
+    <title>Twoje zadania</title>
 </head>
 <body>
 
@@ -22,37 +24,41 @@
 
 <main>
   <div class="addtask">
-  <h2>Dodaj zadanie</h2>
-  <form th:action="@{/tasks}" th:object="${task}" method="post">
-    <label for="description">Opis:</label>
-    <input type="text" id="description" th:field="*{description}" required>
-    <button type="submit">Dodaj zadanie</button>
-  </form>
+      <h2>Dodaj zadanie</h2>
+      <form th:action="@{/tasks}" th:object="${task}" method="post">
+        <label for="description">Opis:</label>
+        <input type="text" id="description" th:field="*{description}" required>
+        <button type="submit">Dodaj zadanie</button>
+      </form>
   </div>
 
-  <div class="tasklist"></div>
-  <h3>Lista dodanych zadań</h3>
-  <table>
-    <tr>
-      <th>Zadania z opisem</th>
-    </tr>
-    <tr th:each="task : ${tasks}">
-      <td th:text="${task.description}"></td>
-    </tr>
-  </table>
-  </div>
+  <div class="tasklist">
+      <h3>Lista dodanych zadań</h3>
+      <table>
+        <tr>
+          <th>Zadania z opisem</th>
+        </tr>
+        <tr th:each="task : ${tasks}">
+          <td th:text="${task.description}"></td>
+        </tr>
+      </table>
 
-  <a th:href="@{/home}">Wróć do menu</a>
+      <a th:href="@{/home}">Wróć do menu</a>
+
+  </div>
 
 </main>
 
-<footer>
-  <p> &copy; 2023 | RenovateMate
-    <span class="icon-box">
-      <a href="#"> <i class="fa-brands fa-square-facebook"></i> </a>
-    </span>
-  </p>
-</footer>
+</div>
+  <footer class="foot">
+    <p> &copy; 2023 | RenovateMate
+      <span class="icon-box">
+            <a href="#"> <i class="fa-brands fa-square-facebook"></i> </a>
+          </span>
+    </p>
+  </footer>
+</div>
+
 
 </body>
 </html>
