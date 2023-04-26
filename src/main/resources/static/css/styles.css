@@ -128,8 +128,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 260px); /* Wysokość strony pomniejszona o wysokość header i footer */
+    min-height: calc(100vh - 260px);
     text-align: center;
+    text-decoration: none;
 }
 .login-container {
     width: 100%;
