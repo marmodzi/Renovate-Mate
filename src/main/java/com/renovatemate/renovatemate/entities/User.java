@@ -1,6 +1,7 @@
 package com.renovatemate.renovatemate.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "users")
@@ -10,6 +11,7 @@ public class User {
     private Long id;
     private String username;
 
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*\\d)(?=.*[a-z])[a-zA-Z\\d]{8,}$", message = "Hasło musi zawierać co najmniej 8 znaków, w tym co najmniej dwie cyfry i jedną dużą literę.")
     private String password;
 
     private String email;

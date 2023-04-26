@@ -122,7 +122,6 @@ body {
     font-size: 30px;
 }
 
-/* Style dla form */
 
 .login {
     display: flex;
@@ -291,6 +290,9 @@ th {
 .addtool button[type="submit"]:hover {
     background-color: #0c63e4;
 }
-
+.error {
+    color: red;
+    display: block;
+}
 
 
